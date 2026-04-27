@@ -58,29 +58,29 @@ function StatCard({ value, suffix, label }: { value: number; suffix: string; lab
   const { count, ref } = useCounter(value);
 
   return (
-    <div ref={ref} className="relative flex flex-col items-center px-8 text-center">
-      <div className="rounded-full bg-[#dceafe] px-8 py-4 text-4xl font-extrabold text-blue">
+    <div ref={ref} className="relative flex flex-col items-center px-5 text-center">
+      <div className="rounded-full bg-[#dceafe] px-6 py-3 text-3xl font-extrabold text-blue">
         {count}
         {suffix}
       </div>
-      <p className="mt-7 max-w-sm text-xl font-bold leading-snug text-black">{label}</p>
+      <p className="mt-5 max-w-xs text-base font-bold leading-snug text-black">{label}</p>
     </div>
   );
 }
 
 export function Stats() {
   return (
-    <section id="stats" className="bg-white py-20">
+    <section id="stats" className="bg-white py-14">
       <div className="section-shell">
-        <div className="mb-20 text-center">
-          <h2 className="text-5xl font-extrabold tracking-tight text-gray-950">
+        <div className="mb-12 text-center">
+          <h2 className="text-4xl font-extrabold tracking-tight text-gray-950 sm:text-5xl">
             Our <span className="text-blue">Track Record</span>
           </h2>
-          <p className="mt-5 text-2xl font-bold text-gray-600">
+          <p className="mt-3 text-lg font-bold text-gray-600">
             The Numbers Behind <span className="text-blue">Our Success</span>
           </p>
         </div>
-        <div className="grid gap-10 md:grid-cols-3 md:divide-x md:divide-gray-200">
+        <div className="grid gap-8 md:grid-cols-3 md:divide-x md:divide-gray-200">
           {stats.map((stat) => (
             <StatCard key={stat.label} {...stat} />
           ))}

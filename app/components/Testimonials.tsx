@@ -15,31 +15,31 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="bg-white py-20">
+    <section id="testimonials" className="bg-white py-14">
       <div className="section-shell">
         <div className="text-center">
-          <h2 className="text-5xl font-extrabold tracking-tight text-gray-950">
+          <h2 className="text-4xl font-extrabold tracking-tight text-gray-950 sm:text-5xl">
             Testimonials from <span className="text-blue">Our Partners</span>
           </h2>
-          <p className="mt-5 text-2xl font-bold text-gray-600">
+          <p className="mt-3 text-lg font-bold text-gray-600">
             What <span className="text-blue">Our Clients</span> Are Saying
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid gap-5 lg:grid-cols-2">
           {testimonials.map((testimonial) => (
-            <article key={testimonial.company} className="min-h-[310px] rounded-xl border border-gray-300 bg-white px-12 py-12">
-              <div className={`text-4xl font-black ${testimonial.logoClass}`}>{testimonial.company}</div>
-              <blockquote className="mt-12 text-2xl font-bold leading-relaxed text-gray-600">
+            <article key={testimonial.company} className="min-h-[220px] rounded-lg border border-gray-300 bg-white px-8 py-8">
+              <div className={`text-3xl font-black ${testimonial.logoClass}`}>{testimonial.company}</div>
+              <blockquote className="mt-8 text-lg font-bold leading-8 text-gray-600">
                 &quot;{testimonial.quote}&quot;
               </blockquote>
             </article>
           ))}
         </div>
 
-        <div className="mt-8 flex justify-center gap-3" aria-label="Testimonial pagination">
-          <span className="h-3 w-3 rounded-full bg-blue" />
-          <span className="h-3 w-3 rounded-full bg-gray-300" />
+        <div className="mt-6 flex justify-center gap-2" aria-label="Testimonial pagination">
+          <span className="h-2.5 w-2.5 rounded-full bg-blue" />
+          <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />
         </div>
       </div>
     </section>

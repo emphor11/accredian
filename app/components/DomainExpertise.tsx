@@ -12,30 +12,30 @@ const domains = [
 
 export function DomainExpertise() {
   return (
-    <section id="cat" className="bg-white py-20">
+    <section id="cat" className="bg-white py-14">
       <div className="section-shell">
         <div className="text-center">
-          <h2 className="text-5xl font-extrabold tracking-tight text-gray-950">
+          <h2 className="text-4xl font-extrabold tracking-tight text-gray-950 sm:text-5xl">
             Our <span className="text-blue">Domain Expertise</span>
           </h2>
-          <p className="mt-5 text-2xl font-bold text-gray-600">
+          <p className="mt-3 text-lg font-bold text-gray-600">
             <span className="text-blue">Specialized Programs</span> Designed to Fuel Innovation
           </p>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-2 lg:grid-cols-3">
           {domains.map((domain, index) => {
             const Icon = domain.icon;
             const centered = index === domains.length - 1;
             return (
               <article
                 key={domain.title}
-                className={`soft-card rounded-xl border border-gray-200 bg-white px-8 py-8 text-center ${
+                className={`soft-card rounded-lg border border-gray-200 bg-white px-6 py-6 text-center ${
                   centered ? "lg:col-start-2" : ""
                 }`}
               >
-                <Icon className="mx-auto text-blue" size={58} strokeWidth={1.8} />
-                <h3 className="mt-5 text-2xl font-extrabold text-gray-950">{domain.title}</h3>
+                <Icon className="mx-auto text-blue" size={42} strokeWidth={1.8} />
+                <h3 className="mt-4 text-lg font-extrabold text-gray-950">{domain.title}</h3>
               </article>
             );
           })}

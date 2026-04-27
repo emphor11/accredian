@@ -43,14 +43,14 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faqs" className="bg-white py-20">
+    <section id="faqs" className="bg-white py-14">
       <div className="section-shell">
-        <h2 className="text-5xl font-extrabold tracking-tight text-gray-950">
+        <h2 className="text-4xl font-extrabold leading-tight tracking-[-0.03em] text-gray-950 sm:text-5xl">
           Frequently Asked <span className="text-blue">Questions</span>
         </h2>
 
-        <div className="mt-16 grid gap-14 lg:grid-cols-[340px_1fr]">
-          <div className="grid content-start gap-8">
+        <div className="mt-12 grid gap-10 lg:grid-cols-[320px_1fr] xl:gap-14">
+          <div className="grid content-start gap-5">
             {tabs.map((tab) => (
               <button
                 key={tab}
@@ -59,8 +59,10 @@ export function FAQ() {
                   setActiveTab(tab);
                   setOpenIndex(0);
                 }}
-                className={`rounded-lg border bg-white px-8 py-7 text-center text-2xl font-bold shadow-lg shadow-gray-200/50 transition ${
-                  activeTab === tab ? "border-gray-200 text-blue" : "border-gray-300 text-gray-500 hover:text-blue"
+                className={`min-h-[84px] rounded-lg border bg-white px-6 py-5 text-center text-lg font-extrabold shadow-[0_10px_24px_rgba(15,23,42,0.05)] transition ${
+                  activeTab === tab
+                    ? "border-gray-200 text-blue"
+                    : "border-gray-300 text-gray-500 hover:border-blue/30 hover:text-blue"
                 }`}
               >
                 {tab}
@@ -68,27 +70,36 @@ export function FAQ() {
             ))}
           </div>
 
-          <div className="space-y-10">
+          <div className="pt-1">
             {faqData[activeTab].map((item, index) => {
               const open = openIndex === index;
               return (
-                <div key={item.q} className="border-b border-gray-200 pb-8">
+                <div key={item.q} className="border-b border-gray-200 py-5 first:pt-0">
                   <button
                     type="button"
                     onClick={() => setOpenIndex(open ? -1 : index)}
-                    className="flex w-full items-center justify-between gap-6 text-left text-2xl font-bold text-gray-950"
+                    className="flex w-full items-center justify-between gap-6 text-left text-xl font-extrabold leading-tight text-gray-950"
+                    aria-expanded={open}
                   >
-                    {item.q}
-                    <ChevronDown className={`shrink-0 text-gray-500 transition ${open ? "rotate-180" : ""}`} size={26} />
+                    <span>{item.q}</span>
+                    <ChevronDown
+                      className={`shrink-0 text-gray-500 transition ${open ? "rotate-180" : ""}`}
+                      size={22}
+                    />
                   </button>
-                  {open ? <p className="mt-5 max-w-3xl text-lg leading-8 text-gray-600">{item.a}</p> : null}
+                  {open ? (
+                    <p className="mt-5 max-w-3xl text-base font-medium leading-8 text-gray-500">
+                      {item.a}
+                    </p>
+                  ) : null}
                 </div>
               );
             })}
 
             <a
-              href="#home"
-              className="mx-auto mt-10 flex w-fit rounded-lg bg-blue px-10 py-4 text-xl font-bold text-white shadow-lg shadow-blue/25"
+              href="#enquire"
+              data-enquiry-trigger
+              className="mx-auto mt-10 flex w-fit rounded-md bg-blue px-9 py-3.5 text-lg font-extrabold text-white shadow-[0_10px_20px_rgba(52,120,229,0.22)] transition hover:bg-[#1f66d6]"
             >
               Enquire Now
             </a>
