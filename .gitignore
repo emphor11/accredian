@@ -22,3 +22,4 @@ pnpm-debug.log*
 # os/editor
 .DS_Store
 *.swp
+.vercel
